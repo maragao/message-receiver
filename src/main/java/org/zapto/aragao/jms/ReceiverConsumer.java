@@ -19,11 +19,11 @@ import org.zapto.aragao.service.MessageReceiverRegister;
 public class ReceiverConsumer implements MessageListener {
 	
 	@EJB
-	private MessageReceiverRegister messageReceiverFactory;
+	private MessageReceiverRegister messageReceiverRegister;
 
 	public void onMessage(Message message) {
 		try {
-			messageReceiverFactory.process(((TextMessage) message).getText());
+			messageReceiverRegister.process(((TextMessage) message).getText());
 		} catch (JMSException e) {
 			e.printStackTrace();
 		}
