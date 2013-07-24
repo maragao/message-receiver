@@ -20,6 +20,7 @@ public class ReceiverServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		receiverProducer.enviarMensagem("Mensagem do Ebroker: " + request.getParameter("payload"));
+		receiverProducer.sendMessage("Mensagem do Ebroker: " + request.getParameter("payload"));
+		response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 	}
 }

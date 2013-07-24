@@ -23,7 +23,7 @@ public class ReceiverConsumer implements MessageListener {
 
 	public void onMessage(Message message) {
 		try {
-			messageReceiverRegister.process(((TextMessage) message).getText());
+			messageReceiverRegister.delivery(((TextMessage) message).getText());
 		} catch (JMSException e) {
 			e.printStackTrace();
 		}

@@ -24,10 +24,7 @@ public class StartupListener implements ServletContextListener  {
 
 	@Override
 	public void contextInitialized(ServletContextEvent context) {
-
 		loadProperty();
-		
-		//messageReceiverRegister.register();
 	}
 	
 	private void loadProperty() {

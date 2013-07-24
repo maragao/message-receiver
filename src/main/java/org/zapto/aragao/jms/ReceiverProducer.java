@@ -46,7 +46,7 @@ public class ReceiverProducer {
         }
     }
  
-    public void enviarMensagem(String text) {
+    public void sendMessage(String text) {
         try {
             messageProducer.send(session.createTextMessage(text));
         } catch (JMSException e) {

@@ -1,6 +1,7 @@
 package org.zapto.aragao.service;
 
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.Singleton;
 
@@ -11,9 +12,9 @@ import org.zapto.aragao.MessageReceiver;
  */
 @Singleton
 public class MessageReceiverRegister {
-	private ConcurrentLinkedQueue<MessageReceiver> receivers = new ConcurrentLinkedQueue<MessageReceiver>();
+	private List<MessageReceiver> receivers = new ArrayList<MessageReceiver>();
 	
-	public void process(String message) {
+	public void delivery(String message) {
 		for (MessageReceiver receiver : receivers) {
 			receiver.process(message);
 		}
@@ -21,5 +22,9 @@ public class MessageReceiverRegister {
 	
 	public void register(MessageReceiver receiver) {
 		receivers.add(receiver);
+	}
+	
+	public void unregister(MessageReceiver receiver) {
+		receivers.remove(receiver);
 	}
 }
